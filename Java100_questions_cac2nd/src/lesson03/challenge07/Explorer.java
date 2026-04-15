@@ -78,20 +78,68 @@ public class Explorer {
 		System.out.println("グーワニかチョキワニかパーワニのどれかです。\n");
 
 		int alligator = 0;
-		int hand = 0;
+		int Flag = 0;
 		int i = 0;
+		int alligator_hand = (int) (Math.random() * 10 % 3) + 1;
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 		//ここにwhile文、if文を利用した処理を記述
+		//alligatorが3になるまで実行
+		for (i = 0; i < 3; i++) {
+			if (Flag == 1) {
+				break;
+			}
+			System.out.println(" 隊長：\nどの手を出して通り抜けますか\n(グー… 1 : チョキ… 2 : パー… 3）＞");
+			String ans = br.readLine();
+			int ans_num = Integer.parseInt(ans);
+			//じゃんけんワニとの判定を行う
+			//グーワニ
+			if (alligator_hand == 1) {
+				System.out.println("相手はグーワニでした。");
+				if (ans_num == 1 || ans_num == 3) {
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				} else {
+					i = 0;
+					Flag = 1;
+					System.out.println("通り抜けに失敗しました。");
+				}
+			}
 
+			//チョキワニ
+			if (alligator_hand == 2) {
+				System.out.println("相手はチョキワニでした。");
+				if (ans_num == 1 || ans_num == 2) {
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				} else {
+					i = 0;
+					Flag = 1;
+					System.out.println("通り抜けに失敗しました。");
+				}
+			}
 
-		if (i == 3) {
+			//パーワニ
+			if (alligator_hand == 3) {
+				System.out.println("相手はパーワニでした。");
+				if (ans_num == 2 || ans_num == 3) {
+					System.out.println(i + 1 + "匹目通り抜け成功！");
+				} else {
+					i = 0;
+					Flag = 1;
+					System.out.println("通り抜けに失敗しました。");
+				}
+			}
+			//渡ったワニの数を加算
+			alligator += 1;
+			alligator_hand = (int) (Math.random() * 10 % 3) + 1;
+
+		}
+
+		if (i == 3)
+
+		{
 			System.out.println("隊長：");
 			System.out.println("川を渡り切りました。");
-		} else {
-			System.out.println("通り抜けに失敗しました...");
 		}
 
 	}
