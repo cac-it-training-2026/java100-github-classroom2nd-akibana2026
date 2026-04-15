@@ -77,7 +77,6 @@ public class Explorer {
 		System.out.println("ワニ3匹発見！\n");
 		System.out.println("グーワニかチョキワニかパーワニのどれかです。\n");
 
-		int alligator = 0;
 		int Flag = 0;
 		int i = 0;
 		int alligator_hand = (int) (Math.random() * 10 % 3) + 1;
@@ -85,8 +84,8 @@ public class Explorer {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		//ここにwhile文、if文を利用した処理を記述
-		//alligatorが3になるまで実行
-		for (i = 0; i < 3; i++) {
+		//iが3になるまで実行
+		while (i < 3) {
 			if (Flag == 1) {
 				break;
 			}
@@ -130,7 +129,7 @@ public class Explorer {
 				}
 			}
 			//渡ったワニの数を加算
-			alligator += 1;
+			i += 1;
 			alligator_hand = (int) (Math.random() * 10 % 3) + 1;
 
 		}
