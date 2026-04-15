@@ -86,6 +86,7 @@ public class Explorer {
 		//ここにwhile文、if文を利用した処理を記述
 		//iが3になるまで実行
 		while (i < 3) {
+			//もしじゃんけんに負けたなら即座に最後文まで飛ぶ
 			if (Flag == 1) {
 				break;
 			}
